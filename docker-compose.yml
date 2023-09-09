@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: "novichki_db"
+      POSTGRES_USER: "novichok"
+      POSTGRES_PASSWORD: "qwerty123"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ./init-scripts:/docker-entrypoint-initdb.d
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U novichok -d novichki_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 4G
+
+volumes:
+  postgres-data:
