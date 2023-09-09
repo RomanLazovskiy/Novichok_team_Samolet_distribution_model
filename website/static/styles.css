@@ -1,0 +1,85 @@
+body {
+    background-color: #ffffff; /* Белый фон */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #007bfb; /* Синий цвет для шапки */
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start; /* Выравниваем элементы влево */
+    align-items: center;
+}
+
+/* Установка белого цвета текста в header */
+header h1 {
+    color: white;
+}
+
+header img {
+    height: 50px; /* Фиксированная высота логотипа (измените по своему усмотрению) */
+    width: auto; /* Автоматическая ширина, чтобы сохранить пропорции */
+    max-width: 100%; /* Ограничиваем максимальную ширину логотипа */
+    max-height: 100%; /* Ограничиваем максимальную высоту логотипа */
+}
+
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+/* Стиль для контейнера кнопок */
+.upload-buttons-container {
+    display: flex;
+    justify-content: center; /* Центрировать кнопки горизонтально */
+    align-items: center; /* Выравнивание по вертикали по центру */
+    margin-top: 50px; /* Расстояние сверху между контейнером и предыдущим элементом */
+}
+
+/* Стиль для объединенной кнопки "Выберите файл" */
+.custom-file-input,
+.custom-upload-button {
+    width: 158.73px; /* Ширина кнопок (измените по своему усмотрению) */
+    height: 38.4px; /* Высота кнопок (измените по своему усмотрению) */
+    padding: 10px 20px;
+    background-color: #0055cc; /* Синий цвет для кнопок */
+    color: #ffffff; /* Белый цвет для текста на кнопках */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Плавное изменение цвета при наведении */
+    font-size: 16px; /* Размер шрифта */
+    margin-right: 10px; /* Расстояние между кнопками */
+}
+
+.upload-form .custom-file-input input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 158.73px;
+    height: 38.4px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload-form .custom-file-input:hover,
+.upload-form .custom-upload-button:hover {
+    background-color: #003366; /* Темно-синий цвет при наведении */
+}
+
+
+/* Стиль для расстояния между изображениями */
+.image-container img {
+    margin-right: 10px; /* Расстояние между изображениями по горизонтали */
+}
+
+/* Стиль для изменения размера изображения самолета по ширине */
+.image-container img#samolet {
+    width: 384px;
+    height: auto;
+}

@@ -1,0 +1,16 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    container_name: my_postgres
+    environment:
+      POSTGRES_DB: novichki_database
+      POSTGRES_USER: novichok
+      POSTGRES_PASSWORD: 55555
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
