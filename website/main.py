@@ -11,10 +11,8 @@ import pickle
 import sys
 import os
 
-# Получите абсолютный путь к корневой директории вашего проекта
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
-# Добавьте путь к корневой директории в sys.path
 sys.path.insert(0, project_root)
 from src.models.predict_model import inference_model
 
@@ -33,8 +31,6 @@ try:
     conn = psycopg2.connect(**db_params)
     cursor = conn.cursor()
     print("Подключение к базе данных прошло успешно.")
-    # Далее можно выполнять SQL-запросы
-    # Не забудьте закрыть соединение и курсор после использования
 except psycopg2.OperationalError as e:
     print("Ошибка подключения к базе данных:", e)
 
@@ -78,10 +74,8 @@ def create_and_write_in_table(file_path, table_name):
         print(str(e))
     conn.commit()
 
-    # Загрузка данных из CSV-файла с помощью Pandas
     df = pd.read_csv(file_path)
 
-    # Создание SQL-запроса для вставки данных в PostgreSQL
     # Создание SQL-запроса для вставки данных в PostgreSQL
     columns_str = ", ".join(cleaned_column_names)
     placeholders = ", ".join(["%s"] * len(cleaned_column_names))
@@ -120,25 +114,25 @@ def upload_file():
             filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             print(filepath)
 
-            # # Открываем файл и определяем его размер
-            file_size = os.path.getsize(filepath)
+            # Проверяем, что файл был передан в запросе
+            if 'file' not in request.files:
+                pass
 
-            # Открываем файл и начинаем запись
-            with open(filepath, 'wb') as f:
-                for chunk in tqdm(file.stream, unit='B', unit_scale=True, desc=filename, total=file_size):
-                    f.write(chunk)
+            file = request.files['file']
 
-            flash('File uploaded successfully')
-            # Добавьте код для записи данных в базу данных
-            # create_and_write_in_table(filepath, table_name='raw_dataset')
+            if file.filename == '':
+                pass
+
+            # Сохраняем содержимое файла на сервере
+            file.save(filepath)
+
             print("Считываю модель")
 
             with open(app.config['model_path'], 'rb') as file:
                 models = pickle.load(file)
 
             print("Загружаю датасет")
-            # df = fetch_latest_data_and_drop_load_dt()
-            feature_dataset = pd.read_csv(filepath)
+            feature_dataset = pd.read_csv(filepath, delimiter=';')
             print(feature_dataset.shape)
             try:
                 print("Формирую предсказания модели")
