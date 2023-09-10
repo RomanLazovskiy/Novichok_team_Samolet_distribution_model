@@ -72,7 +72,7 @@ class FeatureSelector(BaseEstimator, ClassifierMixin):
         ValueError: Генерируется, если какие-то из заданных признаков отсутствуют во входном датасете.
         """
         # Проверяем наличие всех заданных признаков во входном датасете
-        missing_features = set(self.features) - set(df.columns)
+        missing_features = set(self.features) - set(X.columns)
         if missing_features:
             raise ValueError(f"Признаки {missing_features} отсутствуют во входном датасете.")
         

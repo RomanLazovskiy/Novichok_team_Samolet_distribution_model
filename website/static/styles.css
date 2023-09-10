@@ -16,6 +16,7 @@ header {
 /* Установка белого цвета текста в header */
 header h1 {
     color: white;
+    padding: 20px;
 }
 
 header img {
@@ -72,6 +73,15 @@ main {
     background-color: #003366; /* Темно-синий цвет при наведении */
 }
 
+.upload-form {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    margin: 0;
+    padding: 20px; /* Расстояние от верхнего левого угла до формы */
+    justify-content: space-between;
+}
+
 
 /* Стиль для расстояния между изображениями */
 .image-container img {
@@ -83,3 +93,26 @@ main {
     width: 384px;
     height: auto;
 }
+
+#progress-text {
+    margin-height: 50px;
+    font-size: 14px; /* Размер шрифта текста прогресса */
+}
+
+.progress-container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-left: 10px; /* Расстояние между контейнером с прогрессом и кнопкой "Загрузить" */
+    height: 40px;
+}
+
+#upload-progress {
+    width: 100%;
+    height: 10px;
+}
+
+
+
+
+
