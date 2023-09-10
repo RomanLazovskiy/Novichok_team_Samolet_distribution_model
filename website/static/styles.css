@@ -1,28 +1,29 @@
 body {
-    background-color: #ffffff; /* Белый фон */
+    background-color: #ffffff;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #007bfb; /* Синий цвет для шапки */
+    background-color: #007bfb;
     padding: 10px;
     display: flex;
-    justify-content: flex-start; /* Выравниваем элементы влево */
+    justify-content: flex-start;
     align-items: center;
 }
 
 /* Установка белого цвета текста в header */
 header h1 {
     color: white;
+    padding: 20px;
 }
 
 header img {
-    height: 50px; /* Фиксированная высота логотипа (измените по своему усмотрению) */
-    width: auto; /* Автоматическая ширина, чтобы сохранить пропорции */
-    max-width: 100%; /* Ограничиваем максимальную ширину логотипа */
-    max-height: 100%; /* Ограничиваем максимальную высоту логотипа */
+    height: 50px;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 
@@ -35,26 +36,26 @@ main {
 
 /* Стиль для контейнера кнопок */
 .upload-buttons-container {
-    display: flex;
-    justify-content: center; /* Центрировать кнопки горизонтально */
-    align-items: center; /* Выравнивание по вертикали по центру */
-    margin-top: 50px; /* Расстояние сверху между контейнером и предыдущим элементом */
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
 }
 
 /* Стиль для объединенной кнопки "Выберите файл" */
 .custom-file-input,
 .custom-upload-button {
-    width: 158.73px; /* Ширина кнопок (измените по своему усмотрению) */
-    height: 38.4px; /* Высота кнопок (измените по своему усмотрению) */
+    width: 158.73px;
+    height: 38.4px;
     padding: 10px 20px;
-    background-color: #0055cc; /* Синий цвет для кнопок */
-    color: #ffffff; /* Белый цвет для текста на кнопках */
+    background-color: #0055cc;
+    color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s; /* Плавное изменение цвета при наведении */
-    font-size: 16px; /* Размер шрифта */
-    margin-right: 10px; /* Расстояние между кнопками */
+    transition: background-color 0.3s;
+    font-size: 16px;
+    margin-right: 10px;
+    left: 0px;
 }
 
 .upload-form .custom-file-input input[type="file"] {
@@ -65,21 +66,125 @@ main {
     height: 38.4px;
     opacity: 0;
     cursor: pointer;
+    padding: 10px 20px;
 }
 
 .upload-form .custom-file-input:hover,
 .upload-form .custom-upload-button:hover {
-    background-color: #003366; /* Темно-синий цвет при наведении */
+    background-color: #003366;
 }
 
+.upload-form {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    margin: 0;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
-/* Стиль для расстояния между изображениями */
+.progress-container {
+    margin-top: 10px;
+}
+
+.image-container {
+    position: absolute;
+    left: 20px;
+}
+
+.image-logo-container img {
+    width: 350px;
+    height: 200px;
+}
+
+.image-logo-container {
+    position: absolute;
+    left: 200px;
+    top: 350px;
+}
+
 .image-container img {
-    margin-right: 10px; /* Расстояние между изображениями по горизонтали */
+    margin-right: 50px;
+    left: 0;
+    top: 300px;
+    display: inline-block;
+    height: 110px;
+    margin-left: 0;
 }
 
-/* Стиль для изменения размера изображения самолета по ширине */
-.image-container img#samolet {
-    width: 384px;
-    height: auto;
+.image-container {
+    position: absolute;
+    left: 20px;
+    top: 600px;
 }
+
+.progress-bar
+{
+    margin-top: -20px;
+    top: 120px;
+    display: inline-block;
+    justify-content: center;
+    position: absolute;
+    height: 40px;
+}
+
+#upload-progress {
+   width: 320px;
+   justify-content: center;
+   margin-bottom: 50px;
+   height: 20px;
+}
+
+#progress-text {
+  font-size: 14px;
+  justify-content: center;
+  margin: 0px;
+}
+
+/* Стили для класса .error-message (ошибки) */
+.error-message {
+    color: red;
+    font-weight: bold;
+}
+
+/* Стили для класса .success-message (важные этапы) */
+.success-message {
+    color: green;
+    font-weight: bold;
+}
+
+/* Стили для блока "Статус загрузки" и контейнера сообщений */
+.upload-data-status {
+    position: absolute;
+    right: 300px;
+    top: 170px;
+}
+
+
+#message-container {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.message {
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.error-message {
+    background-color: #ffdddd;
+    color: #ff0000;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+
